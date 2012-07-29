@@ -1,0 +1,39 @@
+public domain code
+stevekochscience@gmail.com
+
+This is code I wrote for "extra credit" in exercise 46 of "Learn Python the Hard Way"
+by Zed Shaw http://learnpythonthehardway.org
+
+The purpose is to see if I can create a very simple package that has a script installed too.
+As of 2012 July 29, it seems to work, but I'm not confident that I know what I'm doing.
+This is what I do to make it work:
+
+1. From root directory (test2/) do the following (after having installed pip, distribute, virtualenv, nose)
+
+python setup.py sdist
+
+2. This creates a dist/ directory with test2... tarball and test2.egg... directory with a bunch of files I don't understand.
+
+3. Copy the tarball to ~/Documents/testing/
+
+4. From ~/Documents/testing/ directory, run
+
+sudo pip install test2... (the tarball file)
+
+5. From same directory (probably any directory) run
+
+testscript.py
+
+This produced the following output:
+
+this is a test
+test over
+
+Some (of many) things I don't understand:
+
+A. In "setup.py", I had to include the full filename of the testscript.  Whereas from
+docs.python.org/distutils/setupscript.html#installing-scripts
+it seemed like I shouldn't have to add the ".py" extension to the script name.
+But if I didn't include ".py" extension (as 'scripts': ['bin/testscript.py'], then I got the following error:
+
+not a regular file -- skipping
